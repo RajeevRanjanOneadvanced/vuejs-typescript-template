@@ -22,7 +22,17 @@ module.exports = {
             {
                 test: /\.ts$/,
                 use: 'awesome-typescript-loader'
-            }
+            }{{#tslint}},
+            {
+                test: /\.ts$/,
+                enforce: 'pre',
+                loader: 'tslint-loader',
+                include: [resolve('src'), resolve('test')],
+                options: {
+                    formatter: 'grouped',
+                    formattersDirectory: 'node_modules/custom-tslint-formatters/formatters'
+                }
+            }{{#tslint}}
         ]
     },
     plugins: [

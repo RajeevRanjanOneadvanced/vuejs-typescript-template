@@ -31,14 +31,21 @@ module.exports = {
             "type": "confirm",
             "message": "Install vue-router?"
         },
+        "tslint": {
+            "type": "confirm",
+            "message": "Setup lint with TSLint?"
+        },
         "unit": {
             "type": "confirm",
             "message": "Setup unit tests with Karma + Jasmine?"
         },
-        "tslint": {
+        "e2e": {
             "type": "confirm",
-            "message": "Setup lint with TSLint?"
+            "message": "Setup e2e tests with Nightwacth?"
         }
+    },
+    "filters": {
+        "conf/tslint.json": "tslint"
     },
     "completeMessage": "To get started:\n\n  {{^inPlace}}cd {{destDirName}}\n  {{/inPlace}}npm install\n  npm run dev"
 }
