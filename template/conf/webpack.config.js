@@ -2,6 +2,10 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const CompressionPlugin = require("compression-webpack-plugin")
 const path = require("path")
 
+{{#tslint}}function resolve(dir) {
+    return path.join(__dirname, '..', dir)
+}{{/tslint}}
+
 module.exports = {
     entry: {
         app: ["./src/app/main.ts"]
