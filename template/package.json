@@ -10,8 +10,8 @@
         "prod": "http-server dist -p 5000 -g -o"{{#unit}},
         "unit": "karma start conf/karma.conf.js --single-run"{{/unit}}{{#e2e}},
         "e2e": ""{{/e2e}}{{#if_or unit e2e}},
-        "test": "{{#unit}}npm run unit{{/unit}}{{#unit}}{{#e2e}} && {{/e2e}}{{/unit}}{{#e2e}}npm run e2e{{/e2e}}"{{/if_or}}{{#lint}},
-        "tslint": "tslint -e 'src/**/*.d.ts' -e 'test/unit/**/*.d.ts' -s node_modules/custom-tslint-formatters/formatters -t grouped 'src/**/*.ts' 'test/unit/**/*.ts' 'test/e2e/*.ts'"{{/lint}}
+        "test": "{{#unit}}npm run unit{{/unit}}{{#unit}}{{#e2e}} && {{/e2e}}{{/unit}}{{#e2e}}npm run e2e{{/e2e}}"{{/if_or}}{{#tslint}},
+        "tslint": "tslint -e 'src/**/*.d.ts' -e 'test/unit/**/*.d.ts' -s node_modules/custom-tslint-formatters/formatters -t grouped 'src/**/*.ts' 'test/unit/**/*.ts' 'test/e2e/*.ts'"{{/tslint}}
     },
     "dependencies": {
         "vue": "^2.3.2"{{#router}},
