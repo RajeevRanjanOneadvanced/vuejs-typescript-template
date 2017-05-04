@@ -32,7 +32,7 @@ module.exports = {
                     formatter: 'grouped',
                     formattersDirectory: 'node_modules/custom-tslint-formatters/formatters'
                 }
-            }{{#tslint}}
+            }{{/tslint}}
         ]
     },
     plugins: [
