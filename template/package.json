@@ -7,15 +7,14 @@
         "clean": "rimraf dist",
         "dev": "webpack-dev-server --config conf/webpack.config.js --content-base src --colors --port 5000 --open",
         "build": "webpack --config conf/webpack.config.js --colors",
-        "prod": "http-server dist -p 5000 -g -o",
-        "unit": "",
-        "e2e": "",
-        "test": "npm run unit && npm run e2e",
-        "tslint": ""        
+        "prod": "http-server dist -p 5000 -g -o"{{#unit}},
+        "unit": "karma start conf/karma.conf.js --single-run"{{/unit}}{{#e2e}},
+        "e2e": ""{{/e2e}}{{#if_or unit e2e}},
+        "test": "{{#unit}}npm run unit{{/unit}}{{#unit}}{{#e2e}} && {{/e2e}}{{/unit}}{{#e2e}}npm run e2e{{/e2e}}"{{/if_or}}{{#lint}},
+        "tslint": "tslint -e 'src/**/*.d.ts' -e 'test/unit/**/*.d.ts' -s node_modules/custom-tslint-formatters/formatters -t grouped 'src/**/*.ts' 'test/unit/**/*.ts' 'test/e2e/*.ts'"{{/lint}}
     },
     "dependencies": {
         "vue": "^2.3.2",
-        "vue-class-component": "^5.0.1",
         "vue-router": "^2.5.3"
     },
     "devDependencies": {
@@ -26,7 +25,8 @@
         "http-server": "^0.10.0",
         "rimraf": "^2.6.1",
         "typescript": "^2.3.2",
-        "vue-template-compiler": "2.3.2",
+        "vue-class-component": "^5.0.1",
+        "vue-template-compiler": "^2.3.2",
         "vue-template-loader": "^0.3.1",
         "webpack": "^2.4.1",
         "webpack-dev-server": "^2.4.5"
