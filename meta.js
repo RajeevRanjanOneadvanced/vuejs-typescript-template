@@ -23,13 +23,10 @@ module.exports = {
             "type": "string",
             "label": "Author"
         },
-        "private": {
-            "type": "boolean",
-            "default": true
-        },
-        "router": {
-            "type": "confirm",
-            "message": "Install vue-router?"
+        "port": {
+            "type": "number",
+            "label": "Port number",
+            "default": 5000
         },
         "tslint": {
             "type": "confirm",
