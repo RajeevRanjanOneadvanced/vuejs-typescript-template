@@ -8,7 +8,7 @@ Vue.component("Test", Test);
 
 const vue = new Vue({
     template: "<Test/>"
-})
+});
 
 console.info("mount");
 vue.$mount("#vue");
