@@ -3,5 +3,5 @@
     "editor.detectIndentation": false,
     "editor.tabSize": 4{{#tslint}},
     "tslint.configFile": "conf/tslint.json",
-    "tslint.run": "onSave"{{/tslint}
+    "tslint.run": "onSave"{{/tslint}}
 }
