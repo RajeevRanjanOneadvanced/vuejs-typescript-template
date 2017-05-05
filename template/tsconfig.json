@@ -1,0 +1,22 @@
+{
+    "compilerOptions": {
+        "baseUrl": ".",
+        "paths": {
+            "*": [
+                "src/*"
+            ]
+        },
+        "target": "es5",
+        "module": "amd",
+        "moduleResolution": "node",
+        "experimentalDecorators": true,
+        "allowSyntheticDefaultImports": true,
+        "types": [
+            "node",
+            "vue"
+        ],
+        "typeRoots": [
+            "node_modules/@types"
+        ]
+    }
+}
