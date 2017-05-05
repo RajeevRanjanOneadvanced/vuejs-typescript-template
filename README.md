@@ -1,6 +1,6 @@
 # vue-webpack-typescript-boilerplate
 
-> A full-featured Webpack + typescript setup with hot-reload, unit testing & css extraction.
+> A full-featured Webpack + typescript setup with hot-reload, linting, unit testing & css extraction.
 
 > This template is Vue 2.0 compatible.
 
@@ -23,12 +23,10 @@ $ npm run dev
 
 ## ! Following documentation to be updated !
 
-If port 8080 is already in use on your machine you must change the port number in `/config/index.js`. Otherwise `npm run dev` will fail.
-
 ## What's Included
 
 - `npm run dev`: first-in-class development experience.
-  - Webpack + `vue-loader` + `ts-loader` for single file Vue components.
+  - Webpack + `awesome-typescript-loader`.
   - State preserving hot-reload
   - State preserving compilation error overlay
   - Source maps
@@ -40,7 +38,7 @@ If port 8080 is already in use on your machine you must change the port number i
   - All static assets compiled with version hashes for efficient long-term caching, and a production `index.html` is auto-generated with proper URLs to these generated assets.
   - Use `npm run build --report`to build with bundle size analytics.
 
-- `npm run unit`: Unit tests run in PhantomJS with [Karma](http://karma-runner.github.io/0.13/index.html) + [Mocha](http://mochajs.org/) + [karma-webpack](https://github.com/webpack/karma-webpack).
+- `npm run unit`: Unit tests run in PhantomJS with [Karma](http://karma-runner.github.io/0.13/index.html) + [Jasmine](http://???/) + [karma-webpack](https://github.com/webpack/karma-webpack).
   - Supports typescript in test files.
   - Supports all webpack loaders.
   - Easy mock injection.
@@ -52,3 +50,6 @@ If port 8080 is already in use on your machine you must change the port number i
   - Works with one command out of the box:
     - Selenium and chromedriver dependencies automatically handled.
     - Automatically spawns the Selenium server.
+
+- `npm run tslint`: Lint Typescript code with [TSLint](https://palantir.github.io/tslint/).
+  - Linting also works automatically when used with the TSLint Visual Studio Code plugin.
