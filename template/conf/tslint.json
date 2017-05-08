@@ -22,6 +22,7 @@
             true,
             "double",
             "avoid-escape"
-        ]
+        ],
+        "no-empty": false
     }
 }

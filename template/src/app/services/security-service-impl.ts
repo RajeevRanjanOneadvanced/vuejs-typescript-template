@@ -1,4 +1,4 @@
-import {SecurityService}  from "./security-service";
+import {SecurityService} from "./security-service";
 
 /**
  * The suffix 'impl' indicates that this is a pure Typescript implementation of a service.
