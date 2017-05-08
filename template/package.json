@@ -9,9 +9,10 @@
         "dev": "webpack-dev-server --config conf/webpack.config.js --content-base src --colors --port {{ port }} --open --history-api-fallback",
         "build": "webpack --config conf/webpack.config.js --colors --optimize-minimize",
         "prod": "http-server dist -p {{ port }} -g -o"{{#unit}},
-        "unit": "karma start conf/karma.conf.js --single-run"{{/unit}}{{#e2e}},
+        "unit": "karma start conf/karma.conf.js --browsers PhantomJS --single-run"
+        "unitall": "karma start conf/karma.conf.js --single-run"{{/unit}}{{#e2e}},
         "e2e": ""{{/e2e}}{{#if_or unit e2e}},
-        "test": "{{#unit}}npm run unit{{/unit}}{{#unit}}{{#e2e}} && {{/e2e}}{{/unit}}{{#e2e}}npm run e2e{{/e2e}}"{{/if_or}}{{#tslint}},
+        "test": "{{#unit}}npm run unitall{{/unit}}{{#unit}}{{#e2e}} && {{/e2e}}{{/unit}}{{#e2e}}npm run e2e{{/e2e}}"{{/if_or}}{{#tslint}},
         "tslint": "tslint -c conf/tslint.json -e 'src/**/*.d.ts' {{#unit}}-e 'tests/unit/**/*.d.ts'{{/unit}} -s node_modules/custom-tslint-formatters/formatters -t grouped 'src/**/*.ts' {{#unit}}'tests/unit/**/*.ts'{{/unit}} 'tests/e2e/*.ts'"{{/tslint}}
     },
     "dependencies": {
@@ -46,6 +47,8 @@
         "@types/jasmine": "^2.5.47",
         "jasmine-core": "^2.4.1",
         "karma": "^1.4.1",
+        "karma-chrome-launcher": "^2.1.1",
+        "karma-firefox-launcher": "^1.0.1",
         "karma-jasmine": "^0.3.6",
         "karma-phantomjs-launcher": "^1.0.2",
         "karma-spec-reporter": "0.0.26",

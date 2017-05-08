@@ -31,6 +31,9 @@ $ npm run dev
 
 - `npm run unit`: Unit tests run in PhantomJS with [Karma](http://karma-runner.github.io/0.13/index.html) + [Jasmine](https://jasmine.github.io/) + [karma-webpack](https://github.com/webpack/karma-webpack).
 
+- `npm run unitall`: Unit tests run in PhantomJS, Chrome and Firefox with [Karma](http://karma-runner.github.io/0.13/index.html) + [Jasmine](https://jasmine.github.io/) + [karma-webpack](https://github.com/webpack/karma-webpack).
+  - `npm run unitall -- --browsers Chrome` will run tests only using Chrome.
+
 - `npm run e2e`: End-to-end tests with [Nightwatch](http://nightwatchjs.org/).
 
 - `npm run test`: Unit and End-to-end tests.
