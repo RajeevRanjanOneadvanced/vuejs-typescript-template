@@ -7,7 +7,7 @@
  */
 export interface SecurityService {
 
-    doSomething()
+    doSomething();
 
-    doSomethingElse()
+    doSomethingElse();
 }
