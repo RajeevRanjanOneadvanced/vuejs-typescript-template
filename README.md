@@ -21,35 +21,18 @@ $ npm install
 $ npm run dev
 ```
 
-## ! Following documentation to be updated !
-
 ## What's Included
 
-- `npm run dev`: first-in-class development experience.
-  - Webpack + `awesome-typescript-loader` (TODO: html + css loader)
-  - State preserving hot-reload
-  - State preserving compilation error overlay
-  - Source maps
+- `npm run clean`: Cleans the distribution folder.
+
+- `npm run dev`: First-in-class development experience.
 
 - `npm run build`: Production ready build.
-  - JavaScript minified with [UglifyJS](https://github.com/mishoo/UglifyJS2). TODO: validate
-  - HTML minified with [html-minifier](https://github.com/kangax/html-minifier). TODO: validate
-  - CSS across all components extracted into a single file and minified with [cssnano](https://github.com/ben-eb/cssnano). TODO: validate
-  - All static assets compiled with version hashes for efficient long-term caching, and a production `index.html` is auto-generated with proper URLs to these generated assets. ???
-  - Use `npm run build --report`to build with bundle size analytics.
 
 - `npm run unit`: Unit tests run in PhantomJS with [Karma](http://karma-runner.github.io/0.13/index.html) + [Jasmine](https://jasmine.github.io/) + [karma-webpack](https://github.com/webpack/karma-webpack).
-  - Supports typescript in test files.
-  - Supports all webpack loaders.
-  - Easy mock injection.
-  - Coverage TODO
-    - TODO: `.vue` file coverage exporting
 
 - `npm run e2e`: End-to-end tests with [Nightwatch](http://nightwatchjs.org/).
-  - Run tests in multiple browsers in parallel.
-  - Works with one command out of the box:
-    - Selenium and chromedriver dependencies automatically handled.
-    - Automatically spawns the Selenium server.
+
+- `npm run test`: Unit and End-to-end tests.
 
 - `npm run tslint`: Lint Typescript code with [TSLint](https://palantir.github.io/tslint/).
-  - Linting also works automatically when used with the TSLint Visual Studio Code plugin.

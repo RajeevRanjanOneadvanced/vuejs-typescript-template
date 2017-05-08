@@ -2,7 +2,7 @@
     "compilerOptions": {
         "baseUrl": ".",
         "paths": {
-            "*": [
+            "@/*": [
                 "src/*"
             ]
         },
@@ -12,7 +12,8 @@
         "experimentalDecorators": true,
         "allowSyntheticDefaultImports": true,
         "types": [
-            "node"
+            "node"{{#unit}},
+            "jasmine"{{/unit}}
         ],
         "typeRoots": [
             "node_modules/@types"
