@@ -43,7 +43,7 @@ module.exports = {
     },
     "filters": {
         "conf/tslint.json": "tslint",
-        "conf/karmaconf.js": "unit",
+        "conf/karma.conf.js": "unit",
         "tests/unit/**/*": "unit",
     },
     "completeMessage": "To get started:\n\n  {{^inPlace}}cd {{destDirName}}\n  {{/inPlace}}npm install\n  npm run dev"
