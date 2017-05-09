@@ -38,7 +38,7 @@ module.exports = {
         },
         "e2e": {
             "type": "confirm",
-            "message": "Setup e2e tests with Nightwacth + Selenium?"
+            "message": "Setup e2e tests with Nightwatch + Selenium?"
         }
     },
     "filters": {
