@@ -11,7 +11,7 @@
         "prod": "http-server dist -p {{ port }} -g -o"{{#unit}},
         "unit": "karma start conf/karma.conf.js --browsers PhantomJS --single-run"
         "unitall": "karma start conf/karma.conf.js --single-run"{{/unit}}{{#e2e}},
-        "e2e": ""{{/e2e}}{{#if_or unit e2e}},
+        "e2e": "node tests/e2e/index.js"{{/e2e}}{{#if_or unit e2e}},
         "test": "{{#unit}}npm run unitall{{/unit}}{{#unit}}{{#e2e}} && {{/e2e}}{{/unit}}{{#e2e}}npm run e2e{{/e2e}}"{{/if_or}}{{#tslint}},
         "tslint": "tslint -c conf/tslint.json -e 'src/**/*.d.ts' {{#unit}}-e 'tests/unit/**/*.d.ts'{{/unit}} -s node_modules/custom-tslint-formatters/formatters -t grouped 'src/**/*.ts' {{#unit}}'tests/unit/**/*.ts'{{/unit}} 'tests/e2e/*.ts'"{{/tslint}}
     },
@@ -52,7 +52,11 @@
         "karma-jasmine": "^0.3.6",
         "karma-phantomjs-launcher": "^1.0.2",
         "karma-spec-reporter": "0.0.26",
-        "karma-webpack": "^2.0.2"{{/unit}}
+        "karma-webpack": "^2.0.2"{{/unit}}{{#e2e}},
+        "chromedriver": "^2.27.2",
+        "cross-spawn": "^5.0.1",
+        "nightwatch": "^0.9.12",
+        "selenium-server": "^3.0.1"{{/e2e}}
     },
     "repository": {
         "type": "git",

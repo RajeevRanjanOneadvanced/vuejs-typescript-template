@@ -38,13 +38,15 @@ module.exports = {
         },
         "e2e": {
             "type": "confirm",
-            "message": "Setup e2e tests with Nightwacth?"
+            "message": "Setup e2e tests with Nightwacth + Selenium?"
         }
     },
     "filters": {
         "conf/tslint.json": "tslint",
         "conf/karma.conf.js": "unit",
         "tests/unit/**/*": "unit",
+        "conf/nightwatch.conf.js": "e2e",
+        "tests/e2e/**/*": "e2e"
     },
     "completeMessage": "To get started:\n\n  {{^inPlace}}cd {{destDirName}}\n  {{/inPlace}}npm install\n  npm run dev"
 }
