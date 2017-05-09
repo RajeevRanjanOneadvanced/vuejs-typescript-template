@@ -21,7 +21,7 @@ module.exports = {
             selenium_host: 'localhost',
             silent: true,
             globals: {
-                devServerURL: 'http://localhost:5000'
+                devServerURL: 'http://localhost:{{ port }}'
             }
         },
         chrome: {

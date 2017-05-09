@@ -18,7 +18,7 @@ const getConfig = options => {
         nightwatchConfig,
         nightwatchEnv: 'chrome',
         webpackConfig: path.resolve(process.cwd(), 'conf/webpack.config.js'),
-        port: 5000,
+        port: {{ port }},
         tunnelIdentifier: undefined
     }, options);
 
