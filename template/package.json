@@ -9,7 +9,7 @@
         "dev": "webpack-dev-server --config conf/webpack.config.js --content-base src --colors --port {{ port }} --open --history-api-fallback",
         "build": "webpack --config conf/webpack.config.js --colors --optimize-minimize",
         "prod": "http-server dist -p {{ port }} -g -o"{{#unit}},
-        "unit": "karma start conf/karma.conf.js --browsers PhantomJS --single-run"
+        "unit": "karma start conf/karma.conf.js --browsers PhantomJS --single-run",
         "unitall": "karma start conf/karma.conf.js --single-run"{{/unit}}{{#e2e}},
         "e2e": "node tests/e2e/index.js"{{/e2e}}{{#if_or unit e2e}},
         "test": "{{#unit}}npm run unitall{{/unit}}{{#unit}}{{#e2e}} && {{/e2e}}{{/unit}}{{#e2e}}npm run e2e{{/e2e}}"{{/if_or}}{{#tslint}},
