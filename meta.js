@@ -53,5 +53,9 @@ module.exports = {
         "conf/nightwatch.conf.js": "e2e",
         "tests/e2e/**/*": "e2e"
     },
+    "skipInterpolation": [
+        "src/**/*",
+        "test/**/*"
+    ],
     "completeMessage": "To get started:\n\n  {{^inPlace}}cd {{destDirName}}\n  {{/inPlace}}npm install\n  npm run dev"
 }

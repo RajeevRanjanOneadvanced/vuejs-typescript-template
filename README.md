@@ -21,7 +21,7 @@ This is a project template for [vue-cli](https://github.com/vuejs/vue-cli). **It
 > npm run dev
 ```
 
-## What's Included
+## What's included
 
 - `npm run clean`: Cleans the distribution folder.
 
