@@ -32,6 +32,10 @@ module.exports = {
             "type": "confirm",
             "message": "Setup lint with TSLint?"
         },
+        "stylelint": {
+            "type": "confirm",
+            "message": "Setup CSS/SASS lint with stylelint?"
+        },
         "unit": {
             "type": "confirm",
             "message": "Setup unit tests with Karma + Jasmine?"
@@ -43,6 +47,7 @@ module.exports = {
     },
     "filters": {
         "conf/tslint.json": "tslint",
+        "conf/stylelint.json": "stylelint",
         "conf/karma.conf.js": "unit",
         "tests/unit/**/*": "unit",
         "conf/nightwatch.conf.js": "e2e",

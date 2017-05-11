@@ -1,6 +1,7 @@
-const HtmlWebpackPlugin = require('html-webpack-plugin')
-const CompressionPlugin = require("compression-webpack-plugin")
-const path = require("path")
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CompressionPlugin = require("compression-webpack-plugin");
+{{#stylelint}}const StyleLintPlugin = require('stylelint-webpack-plugin');{{/stylelint}}
+const path = require("path");
 
 function resolve(dir) {
     return path.join(__dirname, '..', dir)
@@ -42,8 +43,7 @@ module.exports = {
                         options: {
                             plugins: function () {
                                 return [
-                                    //require('precss'),
-                                    //require('autoprefixer')
+                                    require('autoprefixer')
                                 ];
                             }
                         }
@@ -72,6 +72,7 @@ module.exports = {
                 loader: 'tslint-loader',
                 include: [resolve('src'), resolve('test')],
                 options: {
+                    configFile: 'conf/tslint.json',
                     formatter: 'grouped',
                     formattersDirectory: 'node_modules/custom-tslint-formatters/formatters'
                 }
@@ -84,6 +85,10 @@ module.exports = {
             template: resolve('src/index.html'),
             inject: 'body'
         }),
-        new CompressionPlugin()
+        new CompressionPlugin(){{#stylelint}},
+        new StyleLintPlugin({
+            configFile: 'conf/stylelint.json',
+            emitErrors: false
+        }){{/stylelint}}
     ]
 }
