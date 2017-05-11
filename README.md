@@ -39,3 +39,5 @@ This is a project template for [vue-cli](https://github.com/vuejs/vue-cli). **It
 - `npm run test`: Unit and End-to-end tests.
 
 - `npm run tslint`: Lint Typescript code with [TSLint](https://palantir.github.io/tslint/).
+
+- `npm run stylelint`: Lint CSS/SASS files with [StyleLine](https://stylelint.io/).
