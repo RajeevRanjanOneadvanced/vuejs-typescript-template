@@ -1,25 +1,25 @@
-import Promise from "es6-promise";
+import Promise from 'es6-promise';
 
 // Polyfill for the Promise API
 Promise.polyfill();
 
 // https://tc39.github.io/ecma262/#sec-array.prototype.find
-if (!Array.prototype["find"]) {
-    Object.defineProperty(Array.prototype, "find", {
+if (!Array.prototype['find']) {
+    Object.defineProperty(Array.prototype, 'find', {
         value: (...predicate: any[]) => {
             // 1. Let O be ? ToObject(this value).
             if (this == null) {
-                throw new TypeError("\"this\" is null or not defined");
+                throw new TypeError('"this" is null or not defined');
             }
 
             let o = Object(this);
 
-            // 2. Let len be ? ToLength(? Get(O, "length")).
+            // 2. Let len be ? ToLength(? Get(O, 'length')).
             let len = o.length >>> 0;
 
             // 3. If IsCallable(predicate) is false, throw a TypeError exception.
-            if (typeof predicate !== "function") {
-                throw new TypeError("predicate must be a function");
+            if (typeof predicate !== 'function') {
+                throw new TypeError('predicate must be a function');
             }
 
             // 4. If thisArg was supplied, let T be thisArg else let T be undefined.

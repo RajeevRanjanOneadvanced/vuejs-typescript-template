@@ -1,8 +1,8 @@
-import Vue from "vue";
-import Component from "vue-class-component";
-import WithRender from "./welcome.html?style=./welcome.scss";
+import Vue from 'vue';
+import Component from 'vue-class-component';
+import WithRender from './welcome.html?style=./welcome.scss';
 
-import MyComp from "../commons/my-comp/my-comp";
+import MyComp from '../commons/my-comp/my-comp';
 
 @WithRender
 @Component({

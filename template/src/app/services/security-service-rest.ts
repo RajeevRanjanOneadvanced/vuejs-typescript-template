@@ -1,4 +1,4 @@
-import {SecurityService} from "./security-service";
+import {SecurityService} from './security-service';
 
 /**
  * The suffix 'rest' indicates that this implementation invokes a rest service.
