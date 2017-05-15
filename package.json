@@ -1,0 +1,25 @@
+{
+    "name": "@ulaval/vuejs-typescript-template",
+    "version": "0.1.0",
+    "description": "A Vue.js template for typescript",
+    "author": "Martin Simard",
+    "private": true,
+    "scripts": {
+        "tslint": "tslint -e 'template/src/**/*.d.ts' -e 'template/tests/unit/**/*.d.ts' -s node_modules/custom-tslint-formatters/formatters -t grouped 'template/**/*.ts'"
+    },
+    "devDependencies": {
+        "custom-tslint-formatters": "^2.1.0",
+        "tslint": "^5.1.0",
+        "tslint-config-standard": "^5.0.2",
+        "typescript": "^2.3.2"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/ulaval/vuejs-typescript-template.git"
+    },
+    "engines": {
+        "node": ">= 6.0.0",
+        "npm": ">= 3.0.0"
+    },
+    "license": "Apache-2.0"
+}
