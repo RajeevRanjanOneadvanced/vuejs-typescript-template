@@ -23,48 +23,63 @@ module.exports = {
             "type": "string",
             "label": "Author"
         },
-        "webpack": {
-            "type": "confirm",
-            "message": "Install webpack dev environment? (if 'no', a simple template is installed)"
+        "devenv": {
+            "type": "list",
+            "message": "Pick a development environment?",
+            "choices": [{
+                "name": "Webpack (full-featured Webpack + Typescript setup with hot-reload)",
+                "value": "webpack",
+                "short": "webpack"
+            }, {
+                "name": "Simple (tsc compiler only)",
+                "value": "simple",
+                "short": "simple"
+            }]
         },
         "port": {
-            "when": "webpack",
+            "when": "devenv == 'webpack'",
             "type": "number",
             "label": "Port number",
             "default": 5000
         },
         "tslint": {
-            "when": "webpack",
+            "when": "devenv == 'webpack'",
             "type": "confirm",
             "message": "Setup lint with TSLint?"
         },
         "stylelint": {
-            "when": "webpack",
+            "when": "devenv == 'webpack'",
             "type": "confirm",
             "message": "Setup CSS/SASS lint with stylelint?"
         },
         "unit": {
-            "when": "webpack",
+            "when": "devenv == 'webpack'",
             "type": "confirm",
             "message": "Setup unit tests with Karma + Jasmine?"
         },
         "e2e": {
-            "when": "webpack",
+            "when": "devenv == 'webpack'",
             "type": "confirm",
             "message": "Setup e2e tests with Nightwatch + Selenium?"
         }
     },
     "filters": {
-        ".vscode/launch.json": "webpack",
-        "conf/**/*": "webpack",
-        "src/**/*": "webpack",
-        "conf/tslint.json": "webpack && tslint",
-        "conf/stylelint.json": "webpack && stylelint",
-        "conf/karma.conf.js": "webpack && unit",
-        "tests/**/*": "webpack && (unit || e2e)",
-        "tests/unit.js": "webpack && unit",
-        "conf/nightwatch.conf.js": "webpack && e2e",
-        "tests/e2e/**/*": "webpack && e2e"
+        ".vscode/launch.json": "devenv == 'webpack'",
+        "conf/**/*": "devenv == 'webpack'",
+        "src/app/**/*": "devenv == 'webpack'",
+        "src/lang/**/*": "devenv == 'webpack'",
+        "src/page2/**/*": "devenv == 'webpack'",
+        "src/public/**/*": "devenv == 'webpack'",
+        "src/themes/**/*": "devenv == 'webpack'",
+        "src/index.html": "devenv == 'webpack'",
+        "src/str.ts": "devenv == 'simple'",
+        "conf/tslint.json": "devenv == 'webpack' && tslint",
+        "conf/stylelint.json": "devenv == 'webpack' && stylelint",
+        "conf/karma.conf.js": "devenv == 'webpack' && unit",
+        "tests/**/*": "devenv == 'webpack' && (unit || e2e)",
+        "tests/unit.js": "devenv == 'webpack' && unit",
+        "conf/nightwatch.conf.js": "devenv == 'webpack' && e2e",
+        "tests/e2e/**/*": "devenv == 'webpack' && e2e"
     },
     "skipInterpolation": [
         "src/**/*",
