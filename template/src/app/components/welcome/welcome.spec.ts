@@ -2,7 +2,7 @@ import Vue from 'vue';
 import Welcome from '@/app/components/welcome/welcome';
 
 describe('Welcome component', () => {
-    it('should render correct contents', () => {
+    it('Should render correct contents', () => {
         Vue.config.ignoredElements = ['router-link'];
 
         const vm = new Vue({

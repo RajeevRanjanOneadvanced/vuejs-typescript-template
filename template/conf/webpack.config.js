@@ -1,96 +1,126 @@
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const CompressionPlugin = require("compression-webpack-plugin");
-{{#stylelint}}const StyleLintPlugin = require('stylelint-webpack-plugin');{{/stylelint}}
-const path = require("path");
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const CompressionPlugin = require("compression-webpack-plugin"){{#stylelint}}
+const StyleLintPlugin = require('stylelint-webpack-plugin'){{/stylelint}}
+const path = require("path")
 
 function resolve(dir) {
     return path.join(__dirname, '..', dir)
 }
 
-module.exports = {
-    entry: {
-        app: ["./src/app/main.ts"]
-    },
+module.exports = function (env) {
+    var isProd = !!(env && env.prod);
 
-    output: {
-        path: resolve("dist"),
-        publicPath: "/",
-        filename: "app.js"
-    },
+    var config = {
+        entry: {
+            app: ["./src/app/main.ts"]
+        },
 
-    resolve: {
-        extensions: ['.js', '.ts', '.html'],
-        alias: {
-            'vue$': 'vue/dist/vue.esm.js',
-            "@": resolve('src')
-        }
-    },
+        output: {
+            path: resolve('dist'),
+            publicPath: "/",
+            filename: "app.js"
+        },
 
-    devtool: 'source-map',
+        resolve: {
+            extensions: ['.js', '.ts', '.html'],
+            alias: {
+                'vue$': 'vue/dist/vue.esm.js',
+                "@": resolve('src')
+            }
+        },
 
-    module: {
-        rules: [
-            {
-                enforce: 'post',
-                test: /\.css$/,
-                use: ['style-loader', 'css-loader']
-            },
-            {
-                enforce: 'post',
-                test: /\.scss$/,
-                use: ['style-loader',
-                    'css-loader',
-                    {
-                        loader: 'postcss-loader',
-                        options: {
-                            plugins: function () {
-                                return [
-                                    require('autoprefixer')
-                                ];
+        devtool: 'eval-source-map',
+
+        module: {
+            rules: [
+                {
+                    enforce: 'post',
+                    test: /\.css$/,
+                    use: ['style-loader', 'css-loader']
+                },
+                {
+                    enforce: 'post',
+                    test: /\.scss$/,
+                    use: ['style-loader',
+                        'css-loader',
+                        {
+                            loader: 'postcss-loader',
+                            options: {
+                                plugins: function () {
+                                    return [
+                                        require('autoprefixer')
+                                    ];
+                                }
                             }
-                        }
-                    },
-                    'sass-loader'
-                ]
-            },
-            {
-                test: /\.html$/,
-                loader: 'vue-template-loader',
-                exclude: resolve('src/index.html'),
-                options: {
-                    scoped: true
-                }
-            },
-            {
-                test: /\.ts$/,
-                loader: 'awesome-typescript-loader',
-                options: {
-                    configFileName: resolve('tsconfig.json')
-                }
-            }{{#tslint}},
-            {
-                test: /\.ts$/,
-                enforce: 'pre',
-                loader: 'tslint-loader',
-                include: [resolve('src'), resolve('test')],
-                options: {
-                    configFile: 'conf/tslint.json',
-                    formatter: 'grouped',
-                    formattersDirectory: 'node_modules/custom-tslint-formatters/formatters'
-                }
-            }{{/tslint}}
+                        },
+                        'sass-loader'
+                    ]
+                },
+                {
+                    test: /\.html$/,
+                    loader: 'vue-template-loader',
+                    exclude: resolve('src/index.html'),
+                    options: {
+                        scoped: true
+                    }
+                }{{#tslint}},
+                {
+                    test: /\.ts$/,
+                    enforce: 'pre',
+                    loader: 'tslint-loader',
+                    include: [resolve('src'), resolve('tests')],
+                    options: {
+                        configFile: 'conf/tslint.json',
+                        formatter: 'grouped',
+                        formattersDirectory: 'node_modules/custom-tslint-formatters/formatters'
+                    }
+                }{{/tslint}},
+                {
+                    test: /\.ts$/,
+                    loader: 'awesome-typescript-loader',
+                    options: {
+                        configFileName: resolve('tsconfig.json'),
+                        useCache: true
+                    }
+                },
+                {
+                    test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
+                    loader: 'url-loader',
+                    options: {
+                        limit: 10000
+                    }
+                },
+            ]
+        },
+        plugins: [
+            new HtmlWebpackPlugin({
+                filename: 'index.html',
+                template: resolve('src/index.html'),
+                inject: 'body'
+            }){{#stylelint}},
+            new StyleLintPlugin({
+                configFile: 'conf/stylelint.json',
+                emitErrors: false
+            }){{/stylelint}}
         ]
-    },
-    plugins: [
-        new HtmlWebpackPlugin({
-            template: 'src/index.html',
-            template: resolve('src/index.html'),
-            inject: 'body'
-        }),
-        new CompressionPlugin(){{#stylelint}},
-        new StyleLintPlugin({
-            configFile: 'conf/stylelint.json',
-            emitErrors: false
-        }){{/stylelint}}
-    ]
+    };
+
+    if (isProd) {
+
+        // To get good stack traces without providing source code
+        config.devtool = 'nosources-source-map';
+
+        // To generate .gz files
+        config.plugins.push(new CompressionPlugin());
+
+        // To disable caching with awesome-typescript-loader
+        config.module.rules.forEach(function (rule) {
+            if (rule.loader == 'awesome-typescript-loader') {
+                rule.options.useCache = false;
+            }
+        })
+
+    }
+
+    return config;
 }
