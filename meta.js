@@ -73,7 +73,7 @@ module.exports = {
         "src/themes/**/*": "devenv == 'webpack'",
         "src/index.html": "devenv == 'webpack'",
         "src/str.ts": "devenv == 'simple'",
-        "src/**/*.spec.ts": "unit",
+        "src/**/*.spec.ts": "devenv == 'webpack' && unit",
         "conf/tslint.json": "devenv == 'webpack' && tslint",
         "conf/stylelint.json": "devenv == 'webpack' && stylelint",
         "conf/karma.conf.js": "devenv == 'webpack' && unit",
