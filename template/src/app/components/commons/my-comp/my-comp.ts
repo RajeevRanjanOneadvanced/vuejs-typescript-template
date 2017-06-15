@@ -1,8 +1,8 @@
 import Vue from 'vue';
 import Component from 'vue-class-component';
 import WithRender from './my-comp.html?style=./my-comp.scss';
-import { MyState } from '@/app/store/my-state';
-import { ChangeValueMutations } from '@/app/store/mutations';
+import { MyState } from '../../../store/my-state';
+import { ChangeValueMutations } from '../../../store/mutations';
 
 @WithRender
 @Component

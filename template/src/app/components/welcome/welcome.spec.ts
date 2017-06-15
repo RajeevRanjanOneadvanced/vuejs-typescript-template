@@ -1,5 +1,5 @@
 import Vue from 'vue';
-import Welcome from '@/app/components/welcome/welcome';
+import Welcome from './welcome';
 
 describe('Welcome component', () => {
     it('Should render correct contents', () => {

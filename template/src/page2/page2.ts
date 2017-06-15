@@ -1,10 +1,10 @@
 import Vue from 'vue';
 import Component from 'vue-class-component';
 import WithRender from './page2.html';
-import { SubState } from '@/app/store/modules/page2/sub-state';
-import { SubStateActions } from '@/app/store/modules/page2/actions';
-import { SubStateMutations } from '@/app/store/modules/page2/mutations';
-import { Page2StoreModule } from '@/app/store/modules/page2';
+import { SubState } from '../app/store/modules/page2/sub-state';
+import { SubStateActions } from '../app/store/modules/page2/actions';
+import { SubStateMutations } from '../app/store/modules/page2/mutations';
+import { Page2StoreModule } from '../app/store/modules/page2';
 
 @WithRender
 @Component
