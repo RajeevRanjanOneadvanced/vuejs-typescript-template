@@ -10,9 +10,9 @@
         "allowSyntheticDefaultImports": true,
         "strictNullChecks": true,
         "types": [
-            "es6-promise"{{#webpack}},
+            "es6-promise"{{#if_eq devenv "webpack"}},
             "node"{{#unit}},
-            "jasmine"{{/unit}}{{/webpack}}
+            "jasmine"{{/unit}}{{/if_eq}}
         ],
         "typeRoots": [
             "node_modules/@types"
