@@ -1,10 +1,10 @@
-const HtmlWebpackPlugin = require('html-webpack-plugin')
-const CompressionPlugin = require("compression-webpack-plugin"){{#stylelint}}
-const StyleLintPlugin = require('stylelint-webpack-plugin'){{/stylelint}}
-const path = require("path")
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CompressionPlugin = require("compression-webpack-plugin");{{#stylelint}}
+const StyleLintPlugin = require('stylelint-webpack-plugin');{{/stylelint}}
+const path = require("path");
 
 function resolve(dir) {
-    return path.join(__dirname, '..', dir)
+    return path.join(__dirname, '..', dir);
 }
 
 module.exports = function (env) {
