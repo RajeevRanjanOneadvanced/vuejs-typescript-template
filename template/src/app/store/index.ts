@@ -1,5 +1,5 @@
 import Vue from 'vue';
-import Vuex, { MutationTree } from 'vuex';
+import Vuex, { Store, MutationTree } from 'vuex';
 import { MyState } from './my-State';
 import { ChangeValueMutations } from './mutations';
 
@@ -10,7 +10,7 @@ const mutations: MutationTree<MyState> = {
     [ChangeValueMutations.TYPE]: ChangeValueMutations.mutate
 };
 
-const store: Vuex.Store<MyState> = new Vuex.Store<MyState>({
+const store: Store<MyState> = new Store<MyState>({
     strict: true, // TODO debug mode only
     state: myState,
     mutations: mutations

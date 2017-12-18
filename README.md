@@ -17,7 +17,7 @@ This is a project template for [vue-cli](https://github.com/vuejs/vue-cli). **It
 > npm install -g vue-cli
 > vue init simardo/vuejs-typescript-template my-project
 > cd my-project
-> npm install
+> npm install --no-optional
 > npm run dev
 ```
 
@@ -40,4 +40,4 @@ This is a project template for [vue-cli](https://github.com/vuejs/vue-cli). **It
 
 - `npm run tslint`: Lint Typescript code with [TSLint](https://palantir.github.io/tslint/).
 
-- `npm run stylelint`: Lint CSS/SASS files with [StyleLine](https://stylelint.io/).
+- `npm run stylelint`: Lint CSS/SASS files with [StyleLint](https://stylelint.io/).

@@ -61,6 +61,11 @@ module.exports = {
             "when": "devenv == 'webpack'",
             "type": "confirm",
             "message": "Setup e2e tests with Nightwatch + Selenium?"
+        },
+        "modul": {
+            "when": "devenv == 'webpack'",
+            "type": "confirm",
+            "message": "Include modul-components lib?"
         }
     },
     "filters": {
@@ -83,8 +88,8 @@ module.exports = {
         "tests/e2e/**/*": "devenv == 'webpack' && e2e"
     },
     "skipInterpolation": [
-        "src/**/*",
-        "test/**/*"
+        "src/**/*.html",
+        "test/**/*.html"
     ],
-    "completeMessage": "To get started:\n\n  {{^inPlace}}cd {{destDirName}}\n  {{/inPlace}}npm install\n  npm run dev (or npm run tsc)"
+    "completeMessage": "To get started:\n\n  {{^inPlace}}cd {{destDirName}}\n  {{/inPlace}}npm install --no-optional\n  npm run dev (or npm run tsc)"
 }

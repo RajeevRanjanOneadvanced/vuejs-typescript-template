@@ -46,6 +46,7 @@ module.exports = function (env) {
                         {
                             loader: 'postcss-loader',
                             options: {
+                                sourceMap: true,
                                 plugins: function () {
                                     return [
                                         require('autoprefixer')
