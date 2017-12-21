@@ -1,6 +1,7 @@
 {
     "compilerOptions": {
         "baseUrl": ".",
+        "rootDir": "src",
         "outDir": "dist",
         "declaration": true,
         "target": "es5",
@@ -9,6 +10,7 @@
         "experimentalDecorators": true,
         "allowSyntheticDefaultImports": true,
         "strictNullChecks": true,
+        "noUnusedLocals": true,
         "types": [
             "es6-promise"{{#if_eq devenv "webpack"}},
             "node"{{#unit}},
