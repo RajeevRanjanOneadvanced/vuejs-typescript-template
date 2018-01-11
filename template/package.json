@@ -74,7 +74,7 @@
         "file-loader": "^1.1.5",
         "moment": "^2.19.3",
         "popper.js": "^1.12.9", 
-        "portal-vue": "^1.1.1",
+        "portal-vue": "~1.1.1",
         "vue-property-decorator": "^6.0.0",
         "vue-touch": "^2.0.0-beta.4"
         {{/modul}}{{/if_eq}}
