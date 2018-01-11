@@ -1,4 +1,3 @@
-import Vue from 'vue';
 import axios from 'axios';
 import { Action, ActionContext } from 'vuex';
 import { SubState } from './sub-state';

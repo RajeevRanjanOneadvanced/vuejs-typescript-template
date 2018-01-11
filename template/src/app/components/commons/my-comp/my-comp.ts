@@ -23,7 +23,7 @@ export default class MyComp extends Vue {
 
     public get value(): string {
         // TODO: null check for unit tests... should inject store in the tests
-        if (this.$store != null) {
+        if (this.$store !== null) {
             return (this.$store.state as MyState).value1;
         } else {
             return '';
