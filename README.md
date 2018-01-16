@@ -17,7 +17,7 @@ This is a project template for [vue-cli](https://github.com/vuejs/vue-cli). **It
 > npm install -g vue-cli
 > vue init simardo/vuejs-typescript-template my-project
 > cd my-project
-> npm install --no-optional
+> npm run setup
 > npm run dev
 ```
 

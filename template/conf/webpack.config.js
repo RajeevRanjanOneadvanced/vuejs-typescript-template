@@ -31,6 +31,10 @@ module.exports = function (env) {
 
         devtool: 'eval-source-map',
 
+        devServer: {
+            historyApiFallback: true
+        },
+
         module: {
             rules: [
                 {

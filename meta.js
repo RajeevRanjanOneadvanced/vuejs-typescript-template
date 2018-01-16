@@ -91,5 +91,5 @@ module.exports = {
         "src/**/*.html",
         "test/**/*.html"
     ],
-    "completeMessage": "To get started:\n\n  {{^inPlace}}cd {{destDirName}}\n  {{/inPlace}}npm install --no-optional\n  npm run dev (or npm run tsc)"
+    "completeMessage": "To get started:\n\n  {{^inPlace}}cd {{destDirName}}\n  {{/inPlace}}npm run setup\n  npm run dev (or npm run tsc)"
 }
