@@ -8,6 +8,7 @@ import ComponentsPlugin from '@ulaval/modul-components/dist/components';
 import ComponentsFrenchPlugin from '@ulaval/modul-components/dist/lang/fr';
 import DirectivesPlugin from '@ulaval/modul-components/dist/directives';
 import UtilsPlugin, { UtilsPluginOptions } from '@ulaval/modul-components/dist/utils';
+import DefaultSpritesPlugin from '@ulaval/modul-components/dist/utils/svg/default-sprites';
 import svc from '@ulaval/modul-components/dist/services/component-meta-impl';
 import '@ulaval/modul-components/dist/styles/main.scss';{{/modul}}
 
@@ -28,6 +29,7 @@ Vue.use(ComponentsPlugin);
 Vue.use(ComponentsFrenchPlugin);
 Vue.use(DirectivesPlugin);
 Vue.use(UtilsPlugin, utilsPluginOptions);
+Vue.use(DefaultSpritesPlugin);
 Vue.use(svc);{{/modul}}
 
 const vue = new Vue({
