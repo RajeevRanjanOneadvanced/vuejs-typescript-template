@@ -91,8 +91,7 @@ module.exports = function (env) {
                     test: /\.ts$/,
                     loader: 'awesome-typescript-loader',
                     options: {
-                        configFileName: resolve('tsconfig.json'),
-                        useCache: true
+                        configFileName: resolve('tsconfig.json')
                     }
                 },
                 {
