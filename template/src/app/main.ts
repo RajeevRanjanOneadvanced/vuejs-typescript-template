@@ -3,7 +3,7 @@ import Vue from 'vue';
 import store from './store';
 import router from './router';
 import axios from 'axios';{{#modul}}
-import I18nPlugin, { currentLang, FRENCH } from '@ulaval/modul-components/dist/utils/i18n/i18n';
+import { FRENCH } from '@ulaval/modul-components/dist/utils/i18n/i18n';
 import ComponentsPlugin from '@ulaval/modul-components/dist/components';
 import ComponentsFrenchPlugin from '@ulaval/modul-components/dist/lang/fr';
 import DirectivesPlugin from '@ulaval/modul-components/dist/directives';
@@ -17,18 +17,19 @@ Vue.config.productionTip = false;
 (Vue.prototype as any).$http = axios;
 {{#modul}}
 const utilsPluginOptions: UtilsPluginOptions = {
-    securityPluginOptions: {
+    httpPluginOptions: {
         protectedUrls: ['<url>'],
-        getToken: () => '<token>'
+        authorizationFn: () => '<token>'
+    },
+    i18PluginOptions: {
+        curLang: FRENCH
     }
 };
 
-currentLang(FRENCH);
-Vue.use(I18nPlugin);
 Vue.use(ComponentsPlugin);
-Vue.use(ComponentsFrenchPlugin);
 Vue.use(DirectivesPlugin);
 Vue.use(UtilsPlugin, utilsPluginOptions);
+Vue.use(ComponentsFrenchPlugin);
 Vue.use(DefaultSpritesPlugin);
 Vue.use(svc);{{/modul}}
 
